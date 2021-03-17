@@ -1,0 +1,58 @@
+import java.awt.*;
+import java.awt.event.*;
+@SuppressWarnings("serial")
+public abstract class MyCheckBox extends Frame implements ItemListener
+{
+	String msg="";
+	Checkbox c1, c2, c3;
+	
+	MyCheckBox()
+	{
+		//setLayout(new FlowLayout());
+		
+		c1 = new Checkbox("Italic");
+		c2 = new Checkbox("Bold", true);
+		add(c1);
+		add(c2);
+		c1.addItemListener(this);
+		c2.addItemListener(this);
+		//to close Window
+		addWindowListener(new WindowAdapter()
+		{
+			@SuppressWarnings("unused")
+	  		public void WindowClosing(WindowEvent e)
+			{
+				System.exit(0);
+			}
+		});
+	}
+//method when user click the CheckBox
+public void ItenStateChanged(ItemEvent ie)
+{
+	paint();
+}
+
+
+private void paint() {
+	// TODO Auto-generated method stub
+	
+}
+//show current state
+public void paint(Graphics g)
+{
+	g.drawString("Show state:", 15, 100);
+	msg = "Italic:"+c1.getState();
+	g.drawString(msg, 15, 120);
+	msg = "Bold:"+c2.getState();
+	g.drawString(msg, 15, 140);
+}
+
+public static void main(String args[])
+{
+	MyCheckBox ch = new MyCheckBox();
+	ch.setTitle("Check box status");
+	ch.setSize(450, 400);
+	ch.setVisible(true);
+
+}
+}
