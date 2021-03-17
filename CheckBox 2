@@ -1,0 +1,26 @@
+import java.awt.*;
+import java.awt.event.*;
+@SuppressWarnings("serial")
+class Array extends Frame{
+	Array(){
+		setTitle("Checkbox");
+		Checkbox c1=new Checkbox("Yes");
+		c1.setBounds(100,100,60,70);
+		Checkbox c2=new Checkbox("No");
+		c2.setBounds(100,100,60,60);
+		add(c1);
+		add(c2);
+		setVisible(true);
+		setLayout(null);
+		setSize(400,400);
+		addWindowListener(new WindowAdapter() {
+				public void windowClosing(WindowEvent ex) {
+					System.exit(0);
+				}
+		});
+	}
+	public static void main(String args[] ) {
+		new Array();
+	
+	}
+} 
